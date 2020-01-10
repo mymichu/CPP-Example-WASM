@@ -1,0 +1,42 @@
+Using lockfile: '/workspaces/CPP-Example-WASM/build/conan.lock'
+Using cached profile from lockfile
+conanfile.py (Calculator/0.1): Running build()
+-- Setting compilation target to WASM
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+    CMAKE_INSTALL_BINDIR
+    CMAKE_INSTALL_DATAROOTDIR
+    CMAKE_INSTALL_INCLUDEDIR
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LIBEXECDIR
+    CMAKE_INSTALL_OLDINCLUDEDIR
+    CMAKE_INSTALL_SBINDIR
+    CONAN_COMPILER
+    CONAN_COMPILER_VERSION
+    CONAN_EXPORTED
+    CONAN_IN_LOCAL_CACHE
+    CONAN_LIBCXX
+
+
+-- Build files have been written to: /workspaces/CPP-Example-WASM/build
+Scanning dependencies of target obj_utils
+[ 25%] Building CXX object src/CMakeFiles/obj_utils.dir/utils/calculator.cpp.o
+shared:INFO: (Emscripten: Running sanity checks)
+Traceback (most recent call last):
+  File "/opt/emsdk/fastcomp/emscripten/emcc.py", line 3556, in <module>
+    sys.exit(run(sys.argv))
+  File "/opt/emsdk/fastcomp/emscripten/emcc.py", line 522, in run
+    shared.check_sanity(force=DEBUG)
+  File "/opt/emsdk/fastcomp/emscripten/tools/shared.py", line 594, in check_sanity
+    with open(sanity_file, 'w') as f:
+IOError: [Errno 13] Permission denied: '/opt/emsdk/.emscripten_sanity'
+src/CMakeFiles/obj_utils.dir/build.make:62: recipe for target 'src/CMakeFiles/obj_utils.dir/utils/calculator.cpp.o' failed
+make[2]: *** [src/CMakeFiles/obj_utils.dir/utils/calculator.cpp.o] Error 1
+CMakeFiles/Makefile2:95: recipe for target 'src/CMakeFiles/obj_utils.dir/all' failed
+make[1]: *** [src/CMakeFiles/obj_utils.dir/all] Error 2
+Makefile:83: recipe for target 'all' failed
+make: *** [all] Error 2

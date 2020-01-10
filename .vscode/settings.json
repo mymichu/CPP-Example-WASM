@@ -1,0 +1,4 @@
+{
+    "cmake.configureOnOpen": false,
+    "conan.installCommand": "conan install .. --profile ../.conan-profile/emscripten"
+}

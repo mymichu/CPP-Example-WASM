@@ -1,0 +1,13 @@
+[
+    {
+        "name":"clang 10.0",
+        "compilers": {
+            "CC" : "clang",
+            "CXX": "clang++"
+        }
+    },
+    {
+        "name": "Emscripten",
+        "toolchainFile": "/opt/emsdk/fastcomp/emscripten/cmake/Modules/Platform/Emscripten.cmake"
+    }
+]
