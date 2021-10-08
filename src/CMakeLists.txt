@@ -14,10 +14,9 @@ add_library(obj_utils
 
 
 message(STATUS "Setting compilation target to WASM")
-set(CMAKE_EXECUTABLE_SUFFIX ".wasm.js")
+set(CMAKE_EXECUTABLE_SUFFIX ".html")
 
 # Add an executable
-add_executable(image-engine image-engine.cpp $<TARGET_OBJECTS:obj_utils>)
+add_executable(image-engine main.cpp image-engine.cpp $<TARGET_OBJECTS:obj_utils>)
 
-set_target_properties(image-engine PROPERTIES LINK_FLAGS "--bind -Oz -s WASM=1 -s NO_EXIT_RUNTIME=1 -s \"EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']\"")
-
+set_target_properties(image-engine PROPERTIES LINK_FLAGS "--bind -Oz -s WASM=1 -s NO_EXIT_RUNTIME=1 -s --emrun \"EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']\"")
