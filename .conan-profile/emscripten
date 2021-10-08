@@ -5,3 +5,7 @@ arch=wasm
 compiler=clang
 compiler.version=6.0
 compiler.libcxx=libc++
+
+[env]
+CC=emcc
+CXX=em++

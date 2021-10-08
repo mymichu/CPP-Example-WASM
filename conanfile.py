@@ -6,7 +6,7 @@ class Calculator(ConanFile):
     url = "Basic-Calculator"
     description = "<Description of Hello here>"
     settings = "os", "compiler", "build_type", "arch"
-    requires = "Catch2/2.11.0@catchorg/stable" # comma-separated list of requirements
+    requires = "catch2/2.13.7" # comma-separated list of requirements
     generators = "cmake"
     exports_sources = "src/*", "test/*", "CMakeLists.txt"
 
