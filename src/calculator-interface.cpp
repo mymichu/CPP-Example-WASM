@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "image-engine.hpp"
+#include "calculator-interface.hpp"
 #include "emscripten/bind.h"
 
 #include "utils/calculator.hpp"

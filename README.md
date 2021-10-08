@@ -1,1 +1,58 @@
-CPP-Example-WASM
+# CPP-Example-WASM
+
+# Build
+
+To build this example run the following commands
+
+1. Build Docker Container to build and serve the example
+
+```console
+docker build .devcontainer -t webassembly-build:latest
+```
+
+2. Build the application:
+
+On Linux
+
+```console
+docker run --rm -v $PWD:/data --workdir /data -it webassembly-build:latest /bin/bash -c '${EMSDK}/emsdk activate ${EMSCRIPTEN_VERSION}; source "/opt/emsdk/emsdk_env.sh"; ./build.sh'
+```
+
+On Windows
+
+```console
+docker run --rm -v "$(pwd):/data" --workdir /data -it webassembly-build:latest /bin/bash -c '${EMSDK}/emsdk activate ${EMSCRIPTEN_VERSION}; source "/opt/emsdk/emsdk_env.sh"; ./build.sh'
+```
+
+## Run WASM Standalone with runtime
+
+To run this example standalone install wasmer
+
+```console
+iwr https://win.wasmer.io -useb | iex
+```
+
+Then run with the following command the wasm file:
+
+```console
+wasmer run build/src/calculator-standalone.wasm
+```
+
+## Run WASM in Browser
+
+Run the following example:
+
+On Linux
+
+```console
+docker run -v $PWD:/data --workdir /data -p 8000:8000 webassembly-build:latest /bin/bash -c '${EMSDK}/emsdk activate ${EMSCRIPTEN_VERSION}; source "/opt/emsdk/emsdk_env.sh"; emrun --no_browser --port 8000 build/src/calculator.html"'
+```
+
+On Windows
+
+```console
+docker run -v "$(pwd):/data" --workdir /data -p 8000:8000 webassembly-build:latest /bin/bash -c '${EMSDK}/emsdk activate ${EMSCRIPTEN_VERSION}; source "/opt/emsdk/emsdk_env.sh"; emrun --no_browser --port 8000 build/src/calculator.html'
+```
+
+Open the Browser and go to:
+http://localhost:8000/calculator.html
