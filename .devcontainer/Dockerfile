@@ -4,7 +4,7 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-ENV EMSCRIPTEN_VERSION 1.38.45-fastcomp
+ENV EMSCRIPTEN_VERSION 2.0.31
 ENV EMSDK /opt/emsdk
 
 # Configure apt and install packages
