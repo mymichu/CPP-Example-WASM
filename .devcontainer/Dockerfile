@@ -7,6 +7,7 @@ ARG USER_GID=$USER_UID
 ENV EMSCRIPTEN_VERSION 2.0.31
 ENV EMSDK /opt/emsdk
 
+ARG DEBIAN_FRONTEND=noninteractive
 # Configure apt and install packages
 RUN apt-get update \
     && apt-get -y install software-properties-common \
