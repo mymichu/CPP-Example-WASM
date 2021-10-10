@@ -17,10 +17,10 @@ message(STATUS "Setting compilation target to WASM")
 #set(CMAKE_EXECUTABLE_SUFFIX ".html")
 
 # Add an executable
-add_executable(calculator-inteface calculator-interface.cpp $<TARGET_OBJECTS:obj_utils>)
+add_executable(calculator-interface calculator-interface.cpp $<TARGET_OBJECTS:obj_utils>)
 add_executable(calculator main.cpp $<TARGET_OBJECTS:obj_utils>)
 add_executable(calculator-standalone main.cpp $<TARGET_OBJECTS:obj_utils>)
 
-set_target_properties(calculator-inteface  PROPERTIES LINK_FLAGS "--bind -Oz -s WASM=1 -s NO_EXIT_RUNTIME=1 -s \"EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']\"" SUFFIX ".js")
+set_target_properties(calculator-interface  PROPERTIES LINK_FLAGS "--bind -Oz -s WASM=1 -s NO_EXIT_RUNTIME=1" SUFFIX ".js")
 set_target_properties(calculator PROPERTIES LINK_FLAGS "--bind -Oz -s WASM=1 -s NO_EXIT_RUNTIME=1 -s --emrun \"EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']\"" SUFFIX ".html")
 set_target_properties(calculator-standalone PROPERTIES LINK_FLAGS "-O3" SUFFIX ".wasm")

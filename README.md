@@ -58,3 +58,27 @@ docker run -v "$(pwd):/data" --workdir /data -p 8000:8000 webassembly-build:late
 
 Open the browser and go to:
 http://localhost:8000/calculator.html
+
+
+## Run WASM in Browser with Javascript interaction
+
+Copy built sources to http/sources folder
+
+```console
+cp build/src/calculator-interface.* http/sources
+```
+
+build docker container
+```console
+docker build http/. -t webserver:latest
+```
+
+run docker container with with webserver
+```console
+docker run -p 9000:80 webserver:latest
+```
+
+Open the browser and go to:
+http://localhost:9000
+
+And check the console log

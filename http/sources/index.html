@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <script src="calculator-interface.js"></script>
+  <script>
+
+  Module['onRuntimeInitialized'] = () => {
+    var instance = new Module.ImageEngine("test");
+    console.log('getGreeting result: ' + instance.getGreeting());
+    instance.delete();
+  }
+  </script>
+</html>
